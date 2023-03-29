@@ -92,16 +92,23 @@ namespace ArduinoToPc
             public string itemName { get; set; }
 
         }
-        public class ApiData { 
+        public class LightsApiData { 
             public Boolean success { get; set; }
             public ApiError[] errors { get; set; }
             public LightData[] data { get; set; }
 
         }
-
+        public LightsApiData lights;
         private void button1_Click(object sender, EventArgs e)
         {
-            try{
+ 
+ 
+        }
+
+        private void lightsTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
                 string url = "https://onlineshop.ibmtal.com/api/index.php?api=smartHomeLight_getAll";
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -110,14 +117,20 @@ namespace ArduinoToPc
                     Stream receiveStreem = response.GetResponseStream();
                     StreamReader reader = new StreamReader(receiveStreem);
                     string data = reader.ReadToEnd();
-                    ApiData lights = JsonConvert.DeserializeObject<ApiData>(data);
-                    MessageBox.Show(lights.errors[0].context);
+                    lights = JsonConvert.DeserializeObject<LightsApiData>(data);
+                    if (lights.success) { 
+                        lightsListBox.Items.Clear();
+                        for (int i = 0; i < lights.data.Length; i++) { 
+                            lightsListBox.Items.Add(lights.data[i].code+" -> "
+                                +lights.data[i].status);    
+                        } 
+                    }
                 }
             }
-            catch (Exception ex) {
- 
+            catch (Exception ex)
+            {
+
             }
- 
         }
     }
 }
