@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9d40624a-3d80-4d18-957c-415232982f15": {
+      "ProjectGuid": "9d40624a-3d80-4d18-957c-415232982f15",
+      "DisplayName": "ArduinoToPc",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
