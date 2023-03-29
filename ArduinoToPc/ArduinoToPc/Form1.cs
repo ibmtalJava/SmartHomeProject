@@ -96,8 +96,10 @@ namespace ArduinoToPc
             public Boolean success { get; set; }
             public ApiError[] errors { get; set; }
             public LightData[] data { get; set; }
+          
 
         }
+        public int lastLight=0;
         public LightsApiData lights;
         private void button1_Click(object sender, EventArgs e)
         {
@@ -131,6 +133,28 @@ namespace ArduinoToPc
             {
 
             }
+        }
+        //smartLight apisinden gelen verileri arduinoya sıra ile gönderme
+        private void lightArduinoSend_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if(lights!=null)
+                if (lights.data!=null)
+                {
+                    if (lastLight >= lights.data.Length) lastLight = 0;
+                    ac.send(
+                        "light" //arduino modülü
+                        , lights.data[lastLight].code // action
+                        , lights.data[lastLight].status.ToString() //data1 0 ise söndür 1 ise yak
+                        , ""//data2 ye gerek yok
+                        , ""//data3 e gerek yok
+
+                    );
+                    lastLight++;
+                }
+            }
+            catch { }   
         }
     }
 }

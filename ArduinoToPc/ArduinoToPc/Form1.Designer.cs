@@ -52,6 +52,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lightsListBox = new System.Windows.Forms.ListBox();
             this.lightsTimer = new System.Windows.Forms.Timer(this.components);
+            this.lightArduinoSend = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -242,6 +243,11 @@
             this.lightsTimer.Interval = 2000;
             this.lightsTimer.Tick += new System.EventHandler(this.lightsTimer_Tick);
             // 
+            // lightArduinoSend
+            // 
+            this.lightArduinoSend.Enabled = true;
+            this.lightArduinoSend.Tick += new System.EventHandler(this.lightArduinoSend_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,6 +307,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lightsListBox;
         private System.Windows.Forms.Timer lightsTimer;
+        private System.Windows.Forms.Timer lightArduinoSend;
     }
 }
 
