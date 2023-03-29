@@ -143,18 +143,30 @@ namespace ArduinoToPc
                 if (lights.data!=null)
                 {
                     if (lastLight >= lights.data.Length) lastLight = 0;
-                    ac.send(
+                        if (ac.serialPort.IsOpen) ac.send(
                         "light" //arduino modülü
                         , lights.data[lastLight].code // action
                         , lights.data[lastLight].status.ToString() //data1 0 ise söndür 1 ise yak
-                        , ""//data2 ye gerek yok
-                        , ""//data3 e gerek yok
+                        , "0"//data2 ye gerek yok
+                        , "0"//data3 e gerek yok
 
                     );
                     lastLight++;
                 }
             }
             catch { }   
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ac.send(
+                       "light" //arduino modülü
+                       , "onkapi" // action
+                       , "1" //data1 0 ise söndür 1 ise yak
+                       , "0"//data2 ye gerek yok
+                       , "0"//data3 e gerek yok
+
+                   );
         }
     }
 }

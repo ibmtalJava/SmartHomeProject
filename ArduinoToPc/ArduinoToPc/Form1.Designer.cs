@@ -53,6 +53,8 @@
             this.lightsListBox = new System.Windows.Forms.ListBox();
             this.lightsTimer = new System.Windows.Forms.Timer(this.components);
             this.lightArduinoSend = new System.Windows.Forms.Timer(this.components);
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -208,6 +210,7 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // gelenveri
@@ -240,19 +243,40 @@
             // lightsTimer
             // 
             this.lightsTimer.Enabled = true;
-            this.lightsTimer.Interval = 2000;
+            this.lightsTimer.Interval = 10000;
             this.lightsTimer.Tick += new System.EventHandler(this.lightsTimer_Tick);
             // 
             // lightArduinoSend
             // 
             this.lightArduinoSend.Enabled = true;
+            this.lightArduinoSend.Interval = 2000;
             this.lightArduinoSend.Tick += new System.EventHandler(this.lightArduinoSend_Tick);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(487, 41);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 212);
+            this.listBox1.TabIndex = 14;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(228, 114);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lightsListBox);
             this.Controls.Add(this.gelenveri);
             this.Controls.Add(this.sendButton);
@@ -308,6 +332,8 @@
         private System.Windows.Forms.ListBox lightsListBox;
         private System.Windows.Forms.Timer lightsTimer;
         private System.Windows.Forms.Timer lightArduinoSend;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
