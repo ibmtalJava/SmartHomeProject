@@ -86,6 +86,13 @@ namespace ArduinoToPc
             public string info { get; set; }
             public int status { get; set; }
         }
+        public class CamData { 
+            public int id { get; set; }
+            public string code { get; set; }
+            public string camera { get; set; }
+            public int xyAngle { get; set; }
+            public int zAngle { get; set; }
+        }
         public class ApiError { 
             public int code { get; set; }   
             public string context { get; set; }
@@ -96,11 +103,17 @@ namespace ArduinoToPc
             public Boolean success { get; set; }
             public ApiError[] errors { get; set; }
             public LightData[] data { get; set; }
-          
+        }
+        public class CamApiData {
+            public Boolean success { get; set; }
+            public ApiError[] errors { get; set; }
+            public CamData[] data { get; set; }
 
         }
         public int lastLight=0;
         public LightsApiData lights;
+        public int lastCam = 0;
+        public CamApiData cams;  
         private void button1_Click(object sender, EventArgs e)
         {
  
@@ -167,6 +180,51 @@ namespace ArduinoToPc
                        , "0"//data3 e gerek yok
 
                    );
+        }
+
+        private void camsTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                string url = "https://onlineshop.ibmtal.com/api/index.php?api=cam_getAll";
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Stream receiveStreem = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(receiveStreem);
+                    string data = reader.ReadToEnd();
+                    cams = JsonConvert.DeserializeObject<CamApiData>(data);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        private void camArduinoTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cams != null)
+                    if (cams.data != null)
+                    {
+                        if (lastCam >= cams.data.Length) lastCam = 0;
+                        if (ac.serialPort.IsOpen) ac.send(
+                        "cam" //arduino modülü
+                        , cams.data[lastCam].code // action
+                        , cams.data[lastCam].xyAngle.ToString() //data1 0 ise söndür 1 ise yak
+                        , cams.data[lastCam].zAngle.ToString()//data2 ye gerek yok
+                        , "0"//data3 e gerek yok
+
+                    );
+                        lastCam++;
+                    }
+            }
+            catch { }
+
         }
     }
 }
