@@ -22,6 +22,8 @@ void loop() {
     int a=sc.data1.toInt();
     camOnKapixy.write(a);
         delay(15);
+    a=sc.data2.toInt();
+    camOnKapiz.write(a);
    
     delay(15);
   }
