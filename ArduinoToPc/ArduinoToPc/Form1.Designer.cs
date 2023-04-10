@@ -244,13 +244,11 @@
             // 
             // lightsTimer
             // 
-            this.lightsTimer.Enabled = true;
             this.lightsTimer.Interval = 10000;
             this.lightsTimer.Tick += new System.EventHandler(this.lightsTimer_Tick);
             // 
             // lightArduinoSend
             // 
-            this.lightArduinoSend.Enabled = true;
             this.lightArduinoSend.Interval = 2000;
             this.lightArduinoSend.Tick += new System.EventHandler(this.lightArduinoSend_Tick);
             // 
@@ -275,13 +273,13 @@
             // camsTimer
             // 
             this.camsTimer.Enabled = true;
-            this.camsTimer.Interval = 3000;
+            this.camsTimer.Interval = 13000;
             this.camsTimer.Tick += new System.EventHandler(this.camsTimer_Tick);
             // 
             // camArduinoTimer
             // 
             this.camArduinoTimer.Enabled = true;
-            this.camArduinoTimer.Interval = 300;
+            this.camArduinoTimer.Interval = 2400;
             this.camArduinoTimer.Tick += new System.EventHandler(this.camArduinoTimer_Tick);
             // 
             // Form1

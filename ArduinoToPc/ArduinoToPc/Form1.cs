@@ -90,8 +90,8 @@ namespace ArduinoToPc
             public int id { get; set; }
             public string code { get; set; }
             public string camera { get; set; }
-            public int xyAngle { get; set; }
-            public int zAngle { get; set; }
+            public string xy_angle { get; set; }
+            public string z_angle { get; set; }
         }
         public class ApiError { 
             public int code { get; set; }   
@@ -195,6 +195,16 @@ namespace ArduinoToPc
                     StreamReader reader = new StreamReader(receiveStreem);
                     string data = reader.ReadToEnd();
                     cams = JsonConvert.DeserializeObject<CamApiData>(data);
+                    if (cams.success)
+                    {
+                        
+                        lightsListBox.Items.Clear();
+                        for (int i = 0; i < cams.data.Length; i++)
+                        {
+                            lightsListBox.Items.Add(cams.data[i].code + " -> "
+                                + cams.data[i].z_angle);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -215,8 +225,8 @@ namespace ArduinoToPc
                         if (ac.serialPort.IsOpen) ac.send(
                         "cam" //arduino modülü
                         , cams.data[lastCam].code // action
-                        , cams.data[lastCam].xyAngle.ToString() //data1 0 ise söndür 1 ise yak
-                        , cams.data[lastCam].zAngle.ToString()//data2 ye gerek yok
+                        , cams.data[lastCam].xy_angle //data1 0 ise söndür 1 ise yak
+                        , cams.data[lastCam].z_angle//data2 ye gerek yok
                         , "0"//data3 e gerek yok
 
                     );
