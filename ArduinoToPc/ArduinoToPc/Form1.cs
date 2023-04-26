@@ -75,6 +75,23 @@ namespace ArduinoToPc
             try
             {
                gelenveri.Text=ac.serialPort.ReadExisting();
+                string[] t = gelenveri.Text.Split('#');
+                if (t.Length > 1) { 
+                    string [] tpart=t[1].Split('*');
+                    if (tpart[0] == "sera")
+                    {
+                        seraSicaklik.Text = tpart[2];
+                        seraNem.Text = tpart[3];
+                        seraSuSeviyesi.Text = tpart[4];
+                    }
+                    if (tpart[0] == "dogwater")
+                    {
+                        dog1.Text = tpart[2];
+                        dog2.Text = tpart[3];
+                        dog3.Text = tpart[4];
+                    }
+
+                }
             }
             catch (Exception ex) { 
             

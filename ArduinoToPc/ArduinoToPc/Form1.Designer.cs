@@ -57,6 +57,20 @@
             this.button2 = new System.Windows.Forms.Button();
             this.camsTimer = new System.Windows.Forms.Timer(this.components);
             this.camArduinoTimer = new System.Windows.Forms.Timer(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.seraSicaklik = new System.Windows.Forms.TextBox();
+            this.seraNem = new System.Windows.Forms.TextBox();
+            this.seraSuSeviyesi = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dog1 = new System.Windows.Forms.TextBox();
+            this.dog2 = new System.Windows.Forms.TextBox();
+            this.dog3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -213,6 +227,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // gelenveri
@@ -237,9 +252,9 @@
             // lightsListBox
             // 
             this.lightsListBox.FormattingEnabled = true;
-            this.lightsListBox.Location = new System.Drawing.Point(361, 41);
+            this.lightsListBox.Location = new System.Drawing.Point(691, 28);
             this.lightsListBox.Name = "lightsListBox";
-            this.lightsListBox.Size = new System.Drawing.Size(120, 225);
+            this.lightsListBox.Size = new System.Drawing.Size(67, 225);
             this.lightsListBox.TabIndex = 13;
             // 
             // lightsTimer
@@ -255,7 +270,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(487, 41);
+            this.listBox1.Location = new System.Drawing.Point(565, 28);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 212);
             this.listBox1.TabIndex = 14;
@@ -282,11 +297,139 @@
             this.camArduinoTimer.Interval = 2400;
             this.camArduinoTimer.Tick += new System.EventHandler(this.camArduinoTimer_Tick);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(232, 182);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "SERA Verileri";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(216, 220);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Sıcaklık";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(216, 256);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Nem";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(219, 290);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Su Seviyesi";
+            // 
+            // seraSicaklik
+            // 
+            this.seraSicaklik.Location = new System.Drawing.Point(266, 220);
+            this.seraSicaklik.Name = "seraSicaklik";
+            this.seraSicaklik.Size = new System.Drawing.Size(100, 20);
+            this.seraSicaklik.TabIndex = 20;
+            // 
+            // seraNem
+            // 
+            this.seraNem.Location = new System.Drawing.Point(266, 258);
+            this.seraNem.Name = "seraNem";
+            this.seraNem.Size = new System.Drawing.Size(100, 20);
+            this.seraNem.TabIndex = 21;
+            // 
+            // seraSuSeviyesi
+            // 
+            this.seraSuSeviyesi.Location = new System.Drawing.Point(287, 288);
+            this.seraSuSeviyesi.Name = "seraSuSeviyesi";
+            this.seraSuSeviyesi.Size = new System.Drawing.Size(100, 20);
+            this.seraSuSeviyesi.TabIndex = 22;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(384, 66);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Su Kapları";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(357, 102);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Golden";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(357, 136);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Doberman";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(358, 169);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(40, 13);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Kangal";
+            // 
+            // dog1
+            // 
+            this.dog1.Location = new System.Drawing.Point(416, 102);
+            this.dog1.Name = "dog1";
+            this.dog1.Size = new System.Drawing.Size(100, 20);
+            this.dog1.TabIndex = 27;
+            // 
+            // dog2
+            // 
+            this.dog2.Location = new System.Drawing.Point(416, 128);
+            this.dog2.Name = "dog2";
+            this.dog2.Size = new System.Drawing.Size(100, 20);
+            this.dog2.TabIndex = 28;
+            // 
+            // dog3
+            // 
+            this.dog3.Location = new System.Drawing.Point(416, 156);
+            this.dog3.Name = "dog3";
+            this.dog3.Size = new System.Drawing.Size(100, 20);
+            this.dog3.TabIndex = 29;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dog3);
+            this.Controls.Add(this.dog2);
+            this.Controls.Add(this.dog1);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.seraSuSeviyesi);
+            this.Controls.Add(this.seraNem);
+            this.Controls.Add(this.seraSicaklik);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.lightsListBox);
@@ -348,6 +491,20 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer camsTimer;
         private System.Windows.Forms.Timer camArduinoTimer;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox seraSicaklik;
+        private System.Windows.Forms.TextBox seraNem;
+        private System.Windows.Forms.TextBox seraSuSeviyesi;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox dog1;
+        private System.Windows.Forms.TextBox dog2;
+        private System.Windows.Forms.TextBox dog3;
     }
 }
 
