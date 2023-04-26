@@ -253,5 +253,12 @@ namespace ArduinoToPc
             catch { }
 
         }
+
+        private void apiSendTimer_Tick(object sender, EventArgs e)
+        {
+            string url = "https://onlineshop.ibmtal.com/api/index.php?api=sera_update&&modul=sera&&action=sensors&&data1="+seraSicaklik.Text+"&&data2="+seraNem.Text+"&&data3="+seraSuSeviyesi.Text+"";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        }
     }
 }

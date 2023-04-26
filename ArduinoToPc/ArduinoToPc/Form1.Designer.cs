@@ -71,6 +71,7 @@
             this.dog1 = new System.Windows.Forms.TextBox();
             this.dog2 = new System.Windows.Forms.TextBox();
             this.dog3 = new System.Windows.Forms.TextBox();
+            this.apiSendTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -411,6 +412,12 @@
             this.dog3.Size = new System.Drawing.Size(100, 20);
             this.dog3.TabIndex = 29;
             // 
+            // apiSendTimer
+            // 
+            this.apiSendTimer.Enabled = true;
+            this.apiSendTimer.Interval = 10000;
+            this.apiSendTimer.Tick += new System.EventHandler(this.apiSendTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,6 +512,7 @@
         private System.Windows.Forms.TextBox dog1;
         private System.Windows.Forms.TextBox dog2;
         private System.Windows.Forms.TextBox dog3;
+        private System.Windows.Forms.Timer apiSendTimer;
     }
 }
 
